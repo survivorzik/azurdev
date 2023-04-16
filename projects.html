@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projects</title>
+	<style>
+		input[type=text] {
+			padding: 10px;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+			margin-bottom: 12px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.project-list li {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>Projects</h1>
+	<input type="text" id="filter-input" placeholder="Filter by technology">
+	<ul class="project-list">
+		<li data-technology="C#">E-commerce Website (C#)</li>
+		<li data-technology="Java">Android App (Java)</li>
+		<li data-technology="Node.js">Real-time Chat App (Node.js)</li>
+		<li data-technology="Java">Stock Market Analysis (Java)</li>
+		<li data-technology="C#">Inventory Management System (C#)</li>
+		<li data-technology="Python">Machine Learning Algorithm (Python)</li>
+		<li data-technology="Node.js">Task Management App (Node.js)</li>
+	</ul>
+
+	<script>
+		const filterInput = document.getElementById('filter-input');
+		const projectList = document.querySelector('.project-list');
+
+		filterInput.addEventListener('input', function() {
+			const filterValue = this.value.toLowerCase();
+
+			for (let i = 0; i < projectList.children.length; i++) {
+				const project = projectList.children[i];
+
+				if (project.dataset.technology.toLowerCase().includes(filterValue)) {
+					project.style.display = '';
+				} else {
+					project.style.display = 'none';
+				}
+			}
+		});
+	</script>
+</body>
+</html>
